@@ -1,6 +1,6 @@
 class Account < ActiveRecord::Base
   #validates_presence_of :user_id
-  attr_accessible :account_number, :account_status,  :user_id,:password, :password_confirmation, :address_attributes, :students_attributes, :guardian, :contact_attributes
+  attr_accessible :account_number, :account_status,  :user_id,:password, :password_confirmation, :address_attributes, :students_attributes, :guardian_attributes, :contact_attributes
   has_one :address, :autosave => true,  :dependent => :destroy
   has_one :guardian
   has_many :students

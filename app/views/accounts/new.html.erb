@@ -51,13 +51,31 @@
        <br>
        <H3> Student Information</H3>
        <%= f.fields_for :students do |student_fields| %>
-	       Student No :<%=student_fields.text_field :student_no %> <br>
 	       <%= student_fields.fields_for :contact do |student_contact_fields| %> 	       	
 	       		First Name :<%=student_contact_fields.text_field :first_name %> <br>
-	       		Last Name :<%=student_contact_fields.text_field :last_name %>
+	       		M.I :<%=student_contact_fields.text_field :middle_name %> <br>
+	       		Last Name :<%=student_contact_fields.text_field :last_name %><br>
+				Gender: <%= student_contact_fields.select :gender,[['Female','Female'],['male','male']]%><br>
+				Birthday:<%= student_contact_fields.text_field :birthday%><br>
+				Email:<%= student_contact_fields.text_field :email%><br>
 	       <% end %>
-
+	       Grade :<%=student_fields.select :grade,[['PK1','PK1'],['PK2','PK2'],['K','K']] %> <br>
+	       School Year Start :<%=student_fields.text_field :school_year_start %> <br>
+	       School Year End :<%=student_fields.text_field :school_year_end %> <br>
        <% end %>
+
+       <H3> Parent/Guardian Information </H3>
+       <%= f.fields_for :guardian do |guardian_fields| %>
+	       <%= guardian_fields.fields_for :contact do |contact_fields| %> 	       	
+	       		First Name :<%=contact_fields.text_field :first_name %> <br>
+	       		M.I :<%=contact_fields.text_field :middle_name %> <br>
+	       		Last Name :<%=contact_fields.text_field :last_name %><br>
+				Email:<%= contact_fields.text_field :email%><br>
+				Home Phone:<%= contact_fields.text_field :home_phone%><br>
+				Cell Phone:<%= contact_fields.text_field :alt_phone%><br>
+	       <% end %>
+       <% end %>
+
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>

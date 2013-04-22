@@ -26,9 +26,10 @@ class AccountsController < ApplicationController
   def new
     @account = Account.new
     @account.build_address
-    student = @account.students.build(student_no:"D1223")
+    student = @account.students.build()
     student.build_contact
-
+    guardian = guardian = @account.build_guardian
+    guardian.build_contact
 
     respond_to do |format|
       format.html # new.html.erb

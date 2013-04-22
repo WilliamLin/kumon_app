@@ -1,3 +1,5 @@
+acct = Account.new(user_id:"abc@test.com")
+acct.addresses_attributes = [ { :address1 => 'ABC Stree',:zip=> '19406' } ]
 student = Student.create(student_no:"d1234")
 
 student.contact = Contact.create(first_name:"John",last_name:"Dow",middle_name:"Jr.",birthday:"01/01/2000",gender:"M",email:"jowdow@kumon.com",home_phone:"303-123-1222")
