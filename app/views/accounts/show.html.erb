@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Account number:</b>
+  <%= @account.account_number %>
+</p>
+
+<p>
+  <b>Account User ID:</b>
+  <%= @account.user_id %>
+</p>
+
+<H3> Address </H3>
+<%= @account.address.address1 %> <br>
+<%= @account.address.address2 %> <br>
+<%= @account.address.city %> <%= @account.address.state %> <%= @account.address.zip %>
+
+<H3> Student </H3>
+<%= @account.students do |student| %>
+   <%= :first_name %>
+<% end %>
+<p>
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>

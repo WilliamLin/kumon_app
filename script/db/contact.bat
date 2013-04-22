@@ -1,0 +1,1 @@
+rails generate scaffold Contact first_name:string last_name:string middle_name:string email:string home_phone:string alt_phone:string birthday:date gender:string

@@ -1,0 +1,1 @@
+rails generate model SchoolClass subject:string grade:integer start_date:date end_date:date

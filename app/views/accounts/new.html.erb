@@ -1,0 +1,66 @@
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for @account do |f| %>
+
+      <!--%= render 'shared/error_messages', object: f.object %-->
+            
+  <H3> Account Information </H3>
+      
+      <table border="0" bordercolor= "transparent" width="100%">
+      	<tr>
+      		<td> <%= f.label :"email" %> </td> 
+      		<td><%= f.text_field :user_id %> </td> 
+      	</tr>
+
+      	<tr>
+      		<td><%= f.label :password %></td>
+      		<td><%= f.password_field :password %></td>
+		</tr>
+
+		<tr>
+		    <td><%= f.label :password_confirmation, "Password Confirmation" %></td>
+      		<td><%= f.password_field :password_confirmation %></td>
+		</tr>      		
+	  </table>
+      </p>
+      <hr/>
+	  
+	  <H3> Home Address</H3>
+       <%= f.fields_for :address do |address_fields| %>    	
+       <table border="0" bordercolor= "transparent">
+      	<tr>
+      		<td>Street Address: </td>
+      		<td colspan="6"><%= address_fields.text_field :address1 %> </td>
+      	</tr>
+      	<tr>
+      		<td>Apt/Suite:</td>
+      		<td colspan="6"><%= address_fields.text_field :address2 %> </td>
+      	</tr>
+       	 
+	    <tr>
+       		<td>City:</td><td><%= address_fields.text_field :city, :size=>10%> </td>
+       		<td>State:</td> <td> <%= address_fields.select :state, [['PA','PA'],['CA','CA']] ,:size=>2%> </td>
+       		<td>Zip Code:</td> <td> <%= address_fields.text_field :zip %> </td>
+       	 </tr>
+      </table>
+       <% end %>
+       <hr/>
+       <br>
+       <H3> Student Information</H3>
+       <%= f.fields_for :students do |student_fields| %>
+	       Student No :<%=student_fields.text_field :student_no %> <br>
+	       <%= student_fields.fields_for :contact do |student_contact_fields| %> 	       	
+	       		First Name :<%=student_contact_fields.text_field :first_name %> <br>
+	       		Last Name :<%=student_contact_fields.text_field :last_name %>
+	       <% end %>
+
+       <% end %>
+      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<br>

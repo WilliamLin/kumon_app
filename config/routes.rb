@@ -1,4 +1,20 @@
 KumonApp::Application.routes.draw do
+  get "static_pages/home"
+
+  get "static_pages/help"
+
+  get "static_pages/about"
+
+  resources :addresses
+
+
+  resources :contacts
+
+
+  resources :accounts
+
+  match '/signup',  to: 'accounts#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

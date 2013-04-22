@@ -1,0 +1,1 @@
+rails generate scaffold Account account_number:string account_status:string previous_account_number:string type:string password_digest:string email:string

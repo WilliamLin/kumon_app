@@ -1,0 +1,1 @@
+rails generate model Payment due_date:date amount:float payment_method:string payment_status:string auto_renew:boolean 
