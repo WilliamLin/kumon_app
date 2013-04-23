@@ -1,0 +1,18 @@
+      <div class = "well">
+          <H3>Account Information </H3>
+      		<div class = "row">
+            <div class ="span2">Email Address</div>
+
+      		  <div class ="span9"><%= f.text_field :user_id, :class=> 'input-block-level', :placeholder=>'Email address'%> </div>           
+         </div>
+
+      		<div class="row">
+            <div class ="span2">Password</div>
+            <div class ="span9">
+            <%= f.password_field :password, :class=> 'input-block-level', :placeholder=>'Password'%></div>
+          </div>
+          <div class="row">
+            <div class = "span2">Confirm Password</div>
+      		  <div class = "span9"><%= f.password_field :password_confirmation, :class=> 'input-block-level', :placeholder=>'Confirm Password'%> </div>     		
+          </div>    
+  	  </div>

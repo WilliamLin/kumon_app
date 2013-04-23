@@ -1,84 +1,106 @@
 <% provide(:title, 'Sign up') %>
+
 <h1>Sign up</h1>
 
-<div class="row">
+<div class="container">
   <div class="span6 offset3">
     <%= form_for @account do |f| %>
 
       <!--%= render 'shared/error_messages', object: f.object %-->
-            
-  <H3> Account Information </H3>
-      
-      <table border="0" bordercolor= "transparent" width="100%">
-      	<tr>
-      		<td> <%= f.label :"email" %> </td> 
-      		<td><%= f.text_field :user_id %> </td> 
-      	</tr>
+          <div class = "well">
+          <H3>Account Information </H3>
+          <div class = "row">
+            <div class ="span2">Email Address</div>
 
-      	<tr>
-      		<td><%= f.label :password %></td>
-      		<td><%= f.password_field :password %></td>
-		</tr>
+            <div class ="span9"><%= f.text_field :user_id, :class=> 'input-block-level', :placeholder=>'Email address'%> </div>           
+         </div>
 
-		<tr>
-		    <td><%= f.label :password_confirmation, "Password Confirmation" %></td>
-      		<td><%= f.password_field :password_confirmation %></td>
-		</tr>      		
-	  </table>
-      </p>
+          <div class="row">
+            <div class ="span2">Password</div>
+            <div class ="span9">
+            <%= f.password_field :password, :class=> 'input-block-level', :placeholder=>'Password'%></div>
+          </div>
+          <div class="row">
+            <div class = "span2">Confirm Password</div>
+            <div class = "span9"><%= f.password_field :password_confirmation, :class=> 'input-block-level', :placeholder=>'Confirm Password'%> </div>         
+          </div>    
+      </div>
       <hr/>
 	  
-	  <H3> Home Address</H3>
+    <div class="well">
+	    <H3> Home Address</H3>
        <%= f.fields_for :address do |address_fields| %>    	
-       <table border="0" bordercolor= "transparent">
-      	<tr>
-      		<td>Street Address: </td>
-      		<td colspan="6"><%= address_fields.text_field :address1 %> </td>
-      	</tr>
-      	<tr>
-      		<td>Apt/Suite:</td>
-      		<td colspan="6"><%= address_fields.text_field :address2 %> </td>
-      	</tr>
-       	 
-	    <tr>
-       		<td>City:</td><td><%= address_fields.text_field :city, :size=>10%> </td>
-       		<td>State:</td> <td> <%= address_fields.select :state, [['PA','PA'],['CA','CA']] ,:size=>2%> </td>
-       		<td>Zip Code:</td> <td> <%= address_fields.text_field :zip %> </td>
-       	 </tr>
-      </table>
+      		<div class="row-fluid">
+            <div class = "span4">Street Address</div>
+            <div class="span8"><%= address_fields.text_field :address1,:class=> 'input-block-level', :placeholder=>'Street Address', :size=>40%> </div>
+          </div>
+          <div class="row-fluid">          
+            <div class = "span4">Apt/Suite</div>
+            <div class="span8"><%= address_fields.text_field :address2,:class=> 'input-block-level', :placeholder=>'Apt/Suite', :size=>40 %></div>
+          </div>
+          <div class="row-fluid">
+            <div class = "span4">City </div>
+            <div class="span8"><%= address_fields.text_field :city, :size=>20,:class=> 'input-block-level', :placeholder=>'City' %> </div>
+          </div>
+          <div class="row-fluid">          
+            <div class = "span4">State</div>
+       		  <div class="span8"><%= address_fields.select :state, [['State','State'],['PA','PA'],['CA','CA']] ,:size=>2, :maxlength=>2,:class=> 'input-block-level', :placeholder=>'State' %> </div>
+          </div>
+          <div class="row-fluid">
+            <div class = "span4">Zip</div>
+       		  <div class = "span8"><%= address_fields.text_field :zip, :size=>5, :maxlength=>5,:class=> 'input-block-level', :placeholder=>'Zip' %> </div>
+          </div>         
        <% end %>
+    </div>       
        <hr/>
-       <br>
+    <div class="well">
        <H3> Student Information</H3>
        <%= f.fields_for :students do |student_fields| %>
-	       <%= student_fields.fields_for :contact do |student_contact_fields| %> 	       	
-	       		First Name :<%=student_contact_fields.text_field :first_name %> <br>
-	       		M.I :<%=student_contact_fields.text_field :middle_name %> <br>
-	       		Last Name :<%=student_contact_fields.text_field :last_name %><br>
-				Gender: <%= student_contact_fields.select :gender,[['Female','Female'],['male','male']]%><br>
-				Birthday:<%= student_contact_fields.text_field :birthday%><br>
-				Email:<%= student_contact_fields.text_field :email%><br>
+	       <%= student_fields.fields_for :contact do |student_contact_fields| %> 	
+         <div class="row">
+           <div class = "span2">First Name</div>
+            <div class="span3"><%=student_contact_fields.text_field :first_name,:class=> 'input-block-level', :placeholder=>'First Name' %> </div>
+             <div class = "span2">M.I</div>
+	       		<div class="span3"><%=student_contact_fields.text_field :middle_name,:class=> 'input-block-level', :placeholder=>'M.I.',:size=>4 %> </div>
+             <div class = "span2">Last Name</div>
+	       		<div class="span3"><%=student_contact_fields.text_field :last_name,:class=> 'input-block-level', :placeholder=>'Last Name',:size=>20 %> </div>
+				    <div class = "span2">Gender </div>
+          <%= student_contact_fields.select :gender,[['Female','Female'],['male','male']]%>
+				    <div class = "span2">Birthday</div>
+          <%= student_contact_fields.text_field :birthday,:id=>"birthday_id"%>
+				    <div class = "span2">Email</div>
+          <%= student_contact_fields.text_field :email%>
 	       <% end %>
-	       Grade :<%=student_fields.select :grade,[['PK1','PK1'],['PK2','PK2'],['K','K']] %> <br>
-	       School Year Start :<%=student_fields.text_field :school_year_start %> <br>
-	       School Year End :<%=student_fields.text_field :school_year_end %> <br>
+	       <div class = "span2">Grade </div>
+         <%=student_fields.select :grade,[['PK1','PK1'],['PK2','PK2'],['K','K']] %> <br>
+	       <div class = "span2">School Year Start</div> <%=student_fields.text_field :school_year_start %> 
+	       <div class = "span2">School Year End </div> <%=student_fields.text_field :school_year_end %> 
        <% end %>
-
+    </div>   
+  </div>
+    <hr>
+     <div class="well">
        <H3> Parent/Guardian Information </H3>
        <%= f.fields_for :guardian do |guardian_fields| %>
 	       <%= guardian_fields.fields_for :contact do |contact_fields| %> 	       	
-	       		First Name :<%=contact_fields.text_field :first_name %> <br>
-	       		M.I :<%=contact_fields.text_field :middle_name %> <br>
-	       		Last Name :<%=contact_fields.text_field :last_name %><br>
-				Email:<%= contact_fields.text_field :email%><br>
-				Home Phone:<%= contact_fields.text_field :home_phone%><br>
-				Cell Phone:<%= contact_fields.text_field :alt_phone%><br>
+	       		<div class = "span2">First Name </div>
+            <%=contact_fields.text_field :first_name %> 
+	       		<div class = "span2">M.I </div>
+            <%=contact_fields.text_field :middle_name %> 
+	       		<div class = "span2">Last Name </div>
+            <%=contact_fields.text_field :last_name %>
+            <div class = "span2">Email</div>
+            <%= contact_fields.text_field :email%>
+            <div class = "span2">Home Phone</div>
+            <%= contact_fields.text_field :home_phone%>
+            <div class = "span2">Cell Phone</div>
+            <%= contact_fields.text_field :alt_phone%>
 	       <% end %>
        <% end %>
-
+     </div>
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-    <% end %>
+    <% end %>    
   </div>
 </div>
+</div>
 
-<br>
