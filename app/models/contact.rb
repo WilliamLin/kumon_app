@@ -3,4 +3,8 @@ class Contact < ActiveRecord::Base
   has_one :address 
   has_many :account_contacts 
   has_many :accounts, :through => :account_contacts 
+
+  def name 
+  	first_name+" "+middle_name+" "+last_name  	
+  end 
 end

@@ -1,2 +1,23 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<% if signed_in? %>
+  <div class="row">
+
+
+  
+  </div>  
+<% else %>
+  <div class="center hero-unit">
+    <h2>
+      Welcome to <a href="http://railstutorial.org/">Kumon Online </a>      
+    </h2>
+  	<%= image_tag("kumonlogo.png", alt: "kumon") %>
+  	<%= image_tag("kumonHeader.jpg", alt: "kumon") %>
+
+
+    <%= link_to "Sign up", signup_path, 
+                                class: "btn btn-large btn-primary" %>
+    <%= link_to "Login", signin_path, 
+                                class: "btn btn-large btn-primary" %>
+
+  </div>
+
+<% end %> 

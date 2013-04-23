@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130420202610) do
+ActiveRecord::Schema.define(:version => 20130423143107) do
 
   create_table "account_contacts", :force => true do |t|
     t.string   "type"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20130420202610) do
     t.string   "user_id"
     t.string   "password_digest"
     t.integer  "center_id"
+    t.string   "remember_token"
   end
 
   create_table "addresses", :force => true do |t|
