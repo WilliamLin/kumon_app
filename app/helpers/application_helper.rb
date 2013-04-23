@@ -9,4 +9,9 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+
+  def to_html(s)
+  	s.gsub("\n",'<br>')
+
+  end 
 end

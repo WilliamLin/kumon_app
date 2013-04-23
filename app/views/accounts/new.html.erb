@@ -61,7 +61,7 @@
          <div class="row">
            <div class = "span2">First Name</div>
             <div class="span3"><%=student_contact_fields.text_field :first_name,:class=> 'input-block-level', :placeholder=>'First Name' %> </div>
-             <div class = "span2">M.I</div>
+             <div class = "span2">Middle Name</div>
 	       		<div class="span3"><%=student_contact_fields.text_field :middle_name,:class=> 'input-block-level', :placeholder=>'M.I.',:size=>4 %> </div>
              <div class = "span2">Last Name</div>
 	       		<div class="span3"><%=student_contact_fields.text_field :last_name,:class=> 'input-block-level', :placeholder=>'Last Name',:size=>20 %> </div>
@@ -86,7 +86,7 @@
 	       <%= guardian_fields.fields_for :contact do |contact_fields| %> 	       	
 	       		<div class = "span2">First Name </div>
             <%=contact_fields.text_field :first_name %> 
-	       		<div class = "span2">M.I </div>
+	       		<div class = "span2">Middle Name </div>
             <%=contact_fields.text_field :middle_name %> 
 	       		<div class = "span2">Last Name </div>
             <%=contact_fields.text_field :last_name %>

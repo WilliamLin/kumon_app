@@ -1,9 +1,35 @@
 <% if signed_in? %>
-  <div class="row">
+ <div class="container-fluid">
 
+    <div class="row-fluid">
 
+      <div class="span3">
+        <div class="well sidebar-nav">
+          <ul class="nav nav-list">                            
+            <li><a href="#">Edit Account</a></li>
+            <li><a href="#">Register Class</a></li>
+            <li><a href="#">Online Tutorial</a></li>
+            <li><a href="#">Payment Online</a></li>
+          </ul>
+        </div> <!-- Well -->
+      </div> <!-- Span -->
+
+     <div class="span9">
+          <div class="hero-unit">
+            <%= link_to image_tag("kumonlogo.png", alt: "kumon"), '"http://www.kumon.com/' %>
+            <h3>Announcement</h3>
+            <p> 
+              <ul>
+                <li> There is no class on Dec 12, 2013</li>
+                <li> Your payment of 200.00 is due on May 1, 2013, Pay Now</li>
+              </ul>
+            </p>
+          </div>
+      </div>
+    </div> <!--row-fluid-->
+  </div><!-- container-fluid-->
   
-  </div>  
+
 <% else %>
   <div class="center hero-unit">
     <h2>
