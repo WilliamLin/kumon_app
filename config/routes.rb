@@ -4,19 +4,16 @@ KumonApp::Application.routes.draw do
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact' 
-
-  resources :addresses
-
-
-  resources :contacts
-
-
-  resources :accounts
-  resources :sessions, only: [:new, :create, :destroy]
-
   match '/signup',  to: 'accounts#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+
+  resources :addresses
+  resources :contacts
+  resources :accounts
+  resources :sessions, only: [:new, :create, :destroy]
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

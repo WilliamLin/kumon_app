@@ -1,29 +1,16 @@
-<h1>Listing accounts</h1>
+<% provide(:title, 'All accounts') %>
+<h1>All accounts</h1>
 
-<table>
-  <tr>
-    <th>Account number</th>
-    <th>Account status</th>
-    <th>Previous account number</th>
-    <th>Type</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= will_paginate %>
 
-<% @accounts.each do |account| %>
-  <tr>
-    <td><%= account.account_number %></td>
-    <td><%= account.account_status %></td>
-    <td><%= account.previous_account_number %></td>
-    <td><%= account.type %></td>
-    <td><%= link_to 'Show', account %></td>
-    <td><%= link_to 'Edit', edit_account_path(account) %></td>
-    <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<div class="well">
+<table border="1">
+	
+   <td> User ID </td>
+   <td> Student Name </td>
+   <td> Parent/Guardian Name </td>
+
+  <%= render @accounts %>
 </table>
-
-<br />
-
-<%= link_to 'New Account', new_account_path %>
+</div>
+<%= will_paginate %>

@@ -1,8 +1,13 @@
 class AccountsController < ApplicationController
+  before_filter :signed_in_account, only: [:index, :edit, :update, :destroy,:followers,:following]
+  before_filter :correct_account,   only: [:edit, :update]
+  before_filter :admin_account,     only: :destroy
+
+
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.all
+     @accounts = Account.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -83,4 +88,16 @@ class AccountsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def correct_account
+        @account = Account.find(params[:id])
+        redirect_to(root_path) unless current_account?(@account)
+    end
+
+    def admin_account
+      redirect_to(root_path) unless current_account.admin?
+    end
+
 end

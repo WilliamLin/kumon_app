@@ -5,7 +5,9 @@ class Contact < ActiveRecord::Base
   has_many :accounts, :through => :account_contacts 
 
   def name 
-  	first_name+" "+middle_name+" "+last_name  	
+  	((first_name.present?)? first_name : "") + " " + \
+    ((middle_name.present?)? middle_name : "") + " " + \
+    ((last_name.present?)? last_name : "")
   end 
 
   def age

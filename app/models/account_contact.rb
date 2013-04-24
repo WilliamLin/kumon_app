@@ -3,4 +3,8 @@ class AccountContact < ActiveRecord::Base
   belongs_to :contact
   belongs_to :account
   accepts_nested_attributes_for :contact
+
+  def name 
+  	(contact.present?)?  contact.name: " "
+  end 
 end

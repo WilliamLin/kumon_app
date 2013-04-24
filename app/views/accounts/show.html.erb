@@ -6,20 +6,24 @@
   <b>Account User ID:</b>
   <%= @account.user_id %>
 <br><br>
+<%if @account.has_address?%>
 <b> Address:  </b><br>
 <%= @account.address.to_s %>
+<%end%>
 
 <br><br>
+<%if @account.has_students?%>
 <b> Student: </b><br>
 <%= @account.students.first.contact.to_s %><br>
 Grade: <%= @account.students.first.grade %><br>
 School Year : <% @account.students.first.school_year_start %> - <% @account.students.first.school_year_end %>
+<%end%>
 
+<%if @account.has_guardian?%>
 <br><br>
 <b> Parent/Guardian: </b><br>
 <%= @account.guardian.contact.name %> <br>
 <%= @account.guardian.contact.contactInfo %>
 <br>
+<%end%>
 </div>
-<%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', accounts_path %>

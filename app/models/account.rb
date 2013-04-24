@@ -14,11 +14,31 @@ class Account < ActiveRecord::Base
   before_save :create_remember_token
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :user_id, presence:   true,
-                    format:     { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
+  validates :user_id, presence:   true  
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+  def has_address?
+     address.present?  && address.address1.present?
+  end 
+
+  def has_students?
+     students.present?  && student_name.present?
+  end 
+
+  def has_guardian?
+     guardian.present? && guardian_name.present?
+  end 
+
+  def student_name 
+    student = self.students.first.contact    
+    (student.present?)? student.name : ""
+  end 
+
+  def guardian_name 
+    guardian_contact = self.guardian
+    (guardian_contact.present?)? guardian_contact.name : ""
+  end 
 
    private
 
