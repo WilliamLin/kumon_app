@@ -8,7 +8,7 @@
               <li><%= link_to "Home",    root_path %></li>
               <li><%= link_to "Help",    help_path %></li>
               <% if signed_in? %>
-                <li><%= link_to "Payment Online",    '#' %></li>
+                <li><%= link_to "Payment Online",    pay_path %></li>
                 <li><%= link_to "Profile", current_account %></li>
                 <li><%= link_to "Settings", '#'                 %></li>
 

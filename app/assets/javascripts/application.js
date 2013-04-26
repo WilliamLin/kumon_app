@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require paypal-button.min.js
 //= require_tree .
 
  $(document).ready(function() {
