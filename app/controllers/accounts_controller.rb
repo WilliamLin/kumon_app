@@ -64,16 +64,13 @@ class AccountsController < ApplicationController
   # PUT /accounts/1
   # PUT /accounts/1.json
   def update
-    @account = Account.find(params[:id])
-
-    respond_to do |format|
-      if @account.update_attributes(params[:account])
-        format.html { redirect_to @account, notice: 'Account was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @account.errors, status: :unprocessable_entity }
-      end
+    @account = Account.find(params[:id])  
+    if @account.update_attributes!(params[:account])
+      flash[:success] = "Profile updated"
+      sign_in @account
+      redirect_to @account
+    else
+      render 'edit'
     end
   end
 

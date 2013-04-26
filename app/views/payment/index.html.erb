@@ -1,13 +1,34 @@
 <div class="well"> 
-<P> Your monthly payment of US 200.00 is due on May 1 
+<%= image_tag("kumonlogo.png", alt: "kumon") %>
+<table>
+	<tr>
+		<td> Make one time payment for next month    </td>
+		<td>
 <script src="http://raw.github.com/paypal/JavaScriptButtons/master/dist/paypal-button.min.js?merchant=qingfenglin-facilitator@gmail.com" 
     data-button="subscribe" 
     data-name="Kumon Monthly Service" 
     data-amount="200.00" 
     data-recurrence="1" 
     data-period="M" 
-    data-callback="http://localhost:3000/paypal_callback" 
+    data-callback="http://localhost:3000/paypal_callback_1_month" 
     data-env="sandbox"
 ></script>
+		</td>
+	</tr>
+	<tr>
+		<td> Make auto recurrence payment every month     </td>
+		<td>
+<script src="http://raw.github.com/paypal/JavaScriptButtons/master/dist/paypal-button.min.js?merchant=qingfenglin-facilitator@gmail.com" 
+    data-button="subscribe" 
+    data-name="Kumon Monthly Service" 
+    data-amount="200.00" 
+    data-recurrence="12" 
+    data-period="M" 
+    data-callback="http://localhost:3000/paypal_callback_12_months" 
+    data-env="sandbox"
+></script>
+		</td>
+	</tr>
+</table>
 </div>
 

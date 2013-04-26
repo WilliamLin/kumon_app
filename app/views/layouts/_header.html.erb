@@ -8,14 +8,13 @@
               <li><%= link_to "Home",    root_path %></li>
               <li><%= link_to "Help",    help_path %></li>
               <% if signed_in? %>
-                <li><%= link_to "Payment Online",    pay_path %></li>
+                <li><%= link_to "Payment",    pay_path %></li>
                 <li><%= link_to "Profile", current_account %></li>
-                <li><%= link_to "Settings", '#'                 %></li>
-
+                <li><%= link_to "Settings", edit_account_path(current_account)%></li>                
                 <% if current_account.admin? %>
-                  <li><%= link_to "Accounts", accounts_path %></li>
+                  <li><%= link_to "Accounts", accounts_path %></li>                  
                 <% else %>
-                  <li><%= link_to "Online Tutorial",    '#' %></li>
+                  <li><%= link_to "Exam",    'http://gpbeta.heroku.com/' %></li>
                 <% end %>
                 
                 <li><%= link_to "Sign out", signout_path, method: "delete" %></li>

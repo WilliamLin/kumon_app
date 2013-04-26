@@ -1,15 +1,15 @@
 <% provide(:title, 'Sign up') %>
 
-<%= link_to image_tag("kumonlogo.png", alt: "kumon"), '"http://www.kumon.com/' %>
-<h1>Registry Online</h1>
 
 <div class="container">
   <div class="span6 offset3">
+  <%= link_to image_tag("kumonlogo.png", alt: "kumon"), '"http://www.kumon.com/' %>
+  <H2>Registry Online</H2>
     <%= form_for @account do |f| %>
 
       <!--%= render 'shared/error_messages', object: f.object %-->
           <div class = "well">
-          <H3>Account Information </H3>
+          <H2>Account Information </H2>
           <div class = "row">
             <div class ="span2">Email Address</div>
 
@@ -29,7 +29,7 @@
       <hr/>
 	  
     <div class="well">
-	    <H3> Home Address</H3>
+	    <H2> Home Address</H2>
        <%= f.fields_for :address do |address_fields| %>    	
       		<div class="row-fluid">
             <div class = "span4">Street Address</div>
@@ -55,7 +55,7 @@
     </div>       
        <hr/>
     <div class="well">
-       <H3> Student Information</H3>
+       <H2> Student Information</H2>
        <%= f.fields_for :students do |student_fields| %>
 	       <%= student_fields.fields_for :contact do |student_contact_fields| %> 	
          <div class="row">
@@ -81,7 +81,7 @@
   </div>
     <hr>
      <div class="well">
-       <H3> Parent/Guardian Information </H3>
+       <H2> Parent/Guardian Information </H2>
        <%= f.fields_for :guardian do |guardian_fields| %>
 	       <%= guardian_fields.fields_for :contact do |contact_fields| %> 	       	
 	       		<div class = "span2">First Name </div>
