@@ -7,6 +7,7 @@ KumonApp::Application.routes.draw do
   match '/signup',  to: 'accounts#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+  match '/pay', to: 'payment#index'
 
   resources :addresses
   resources :contacts

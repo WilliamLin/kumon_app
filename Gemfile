@@ -11,6 +11,7 @@ gem 'calendar_date_select'
 gem 'jquery-ui-rails'
 gem 'pry', :group => :development
 gem 'pry-rails'
+gem 'paypal-sdk-rest'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
